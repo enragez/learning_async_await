@@ -1,30 +1,32 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 
-namespace WorkerNotAsync
+namespace WorkerAsyncCSharp5
 {
     internal class Worker
     {
         public bool WorkCompleted { get; set; }
         
-        public void DoWork()
+        public async void DoWork()
         {
             WorkCompleted = false;
             
             Console.WriteLine("Начало работы");
             
-            LongOperation();
+            await LongOperation();
 
             WorkCompleted = true;
             
+            Console.WriteLine();
             Console.WriteLine("Работа завершена");
         }
 
-        private void LongOperation()
+        private async Task LongOperation()
         {
             Console.WriteLine("Работаю...");
 
-            Thread.Sleep(5000);
+            await Task.Delay(5000);
         }
     }
 }

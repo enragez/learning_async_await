@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Threading;
+using System.Threading.Tasks;
 
-namespace WorkerNotAsync
+namespace WorkerAsyncBeforeCSharp5
 {
     internal class Program
     {
@@ -9,8 +10,8 @@ namespace WorkerNotAsync
         {
             var worker = new Worker();
             
-            worker.DoWork();
-
+            Task.Factory.StartNew(() => { worker.DoWork(); });
+            
             while (!worker.WorkCompleted)
             {
                 Console.Write(".");

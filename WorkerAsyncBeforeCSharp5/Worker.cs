@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace WorkerNotAsync
+namespace WorkerAsyncBeforeCSharp5
 {
     internal class Worker
     {
@@ -9,14 +9,15 @@ namespace WorkerNotAsync
         
         public void DoWork()
         {
-            WorkCompleted = false;
-            
             Console.WriteLine("Начало работы");
+            
+            WorkCompleted = false;
             
             LongOperation();
 
             WorkCompleted = true;
             
+            Console.WriteLine();
             Console.WriteLine("Работа завершена");
         }
 

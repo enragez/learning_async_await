@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace WorkerNotAsync
+namespace WorkerAsyncCSharp5Impl
 {
     internal class Program
     {
