@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Threading;
 
-namespace WorkerAsyncTPL.NET45
+namespace WorkerAsyncAPM.NET1
 {
-    internal class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
             var worker = new Worker();
-            
+
             worker.DoWork();
 
             while (!worker.WorkCompleted)

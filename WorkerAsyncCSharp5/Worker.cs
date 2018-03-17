@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Threading;
 using System.Threading.Tasks;
+using Helpers;
 
-namespace WorkerAsyncCSharp5
+namespace WorkerAsyncTPL.NET45
 {
     internal class Worker
     {
@@ -26,7 +26,7 @@ namespace WorkerAsyncCSharp5
         {
             Console.WriteLine("Работаю...");
 
-            await Task.Delay(5000);
+            await Task.Delay(Helper.WorkDelay);
         }
     }
 }

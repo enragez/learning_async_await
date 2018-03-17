@@ -2,8 +2,9 @@
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using Helpers;
 
-namespace WorkerAsyncCSharp5Impl
+namespace WorkerAsyncTPL.NET45.Implementation
 {
     internal class Worker
     {
@@ -115,7 +116,7 @@ namespace WorkerAsyncCSharp5Impl
                     if (num != 0)
                     {
                         Console.WriteLine("Работаю...");
-                        awaiter = Task.Delay(5000).GetAwaiter();
+                        awaiter = Task.Delay(Helper.WorkDelay).GetAwaiter();
                         if (!awaiter.IsCompleted)
                         {
                             this.State = 0;

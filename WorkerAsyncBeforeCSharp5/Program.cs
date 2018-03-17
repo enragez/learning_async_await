@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace WorkerAsyncBeforeCSharp5
+namespace WorkerAsyncTPL.NET4
 {
     internal class Program
     {

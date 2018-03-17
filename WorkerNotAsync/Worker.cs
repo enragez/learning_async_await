@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading;
+using Helpers;
 
 namespace WorkerNotAsync
 {
@@ -24,7 +25,7 @@ namespace WorkerNotAsync
         {
             Console.WriteLine("Работаю...");
 
-            Thread.Sleep(5000);
+            Thread.Sleep(Helper.WorkDelay);
         }
     }
 }
