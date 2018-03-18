@@ -17,6 +17,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.AsyncEvolution", "1.AsyncEvolution", "{E0780C28-ABFF-4A6F-AE50-72710AA58344}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.AsyncAwaitExample", "2.AsyncAwaitExample", "{25918328-E8AC-4820-B80B-21551C219CE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.WpfDemo", "1.WpfDemo\1.WpfDemo.csproj", "{B8BAC91C-2330-4469-96DF-2D617BF2F2A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +51,10 @@ Global
 		{CE84F978-5404-4C95-BF9D-0BDA181219EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE84F978-5404-4C95-BF9D-0BDA181219EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE84F978-5404-4C95-BF9D-0BDA181219EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8BAC91C-2330-4469-96DF-2D617BF2F2A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8BAC91C-2330-4469-96DF-2D617BF2F2A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8BAC91C-2330-4469-96DF-2D617BF2F2A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8BAC91C-2330-4469-96DF-2D617BF2F2A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +65,7 @@ Global
 		{51F37551-07D8-4AE6-B63D-7B62E10E516E} = {E0780C28-ABFF-4A6F-AE50-72710AA58344}
 		{70C22CB3-EB2C-49C2-AD23-DE3191C326FA} = {E0780C28-ABFF-4A6F-AE50-72710AA58344}
 		{1ACCFF22-0A5C-4547-A4E3-742A5DC18EEA} = {E0780C28-ABFF-4A6F-AE50-72710AA58344}
+		{B8BAC91C-2330-4469-96DF-2D617BF2F2A2} = {25918328-E8AC-4820-B80B-21551C219CE7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B6636D9B-0859-4661-8AC5-AA8C4302C41B}
