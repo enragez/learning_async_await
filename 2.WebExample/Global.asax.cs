@@ -13,7 +13,7 @@ namespace _2.WebExample
     {
         protected void Application_Start()
         {
-            ThreadPool.SetMaxThreads(50, 50);
+            ThreadPool.SetMaxThreads(5, 5);
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
