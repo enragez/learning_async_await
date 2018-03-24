@@ -18,8 +18,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <charting:Chart Canvas.Top="80" Canvas.Left="10" Name="mcChart"
-                                  Background="LightSteelBlue" Margin="35,84,32,33">
+        <charting:Chart Name="mcChart" Background="LightSteelBlue" Margin="35,84,32,33">
             <charting:Chart.Series>
                 <charting:LineSeries Title="sync" 
                                      DataPointStyle="{StaticResource redLine}"
@@ -33,8 +32,7 @@
                 </charting:LineSeries>
             </charting:Chart.Series>
         </charting:Chart>
-        <Button x:Name ="SyncBtn" Content="Sync requests" HorizontalAlignment="Left" Margin="35,31,0,0" VerticalAlignment="Top" Width="136" Click="SyncBtn_Click"/>
-        <Button x:Name ="AsyncBtn" Content="Async requests" HorizontalAlignment="Left" Margin="214,31,0,0" VerticalAlignment="Top" Width="136" RenderTransformOrigin="-0.21,-1" Click="AsyncBtn_Click" />
-        <Button x:Name="ClearChartBtn" Content="Clear chart" HorizontalAlignment="Left" Margin="626,31,0,0" VerticalAlignment="Top" Width="113" Click="ClearChartBtn_Click"/>
+        <Button x:Name="SyncBtn" Content="Sync" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="38,47,0,0" Width="106" Click="SyncBtn_Click"/>
+        <Button x:Name="AsyncBtn" Content="Async" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="160,47,0,0" Width="106" Click="AsyncBtn_Click"/>
     </Grid>
 </Window>

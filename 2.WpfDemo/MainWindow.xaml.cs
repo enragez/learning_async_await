@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -35,18 +36,25 @@ namespace _2.WpfDemo
 
         private void SyncBtn_Click(object sender, RoutedEventArgs e)
         {
-            Requests(false);
+            var progress = new Progress<ProgressReportModel>();
+            progress.ProgressChanged += ProgressOnProgressChanged;
+
+            RequestsParallel(false, progress);
         }
 
         private void AsyncBtn_Click(object sender, RoutedEventArgs e)
         {
-            Requests(true);
-        }
+            var progress = new Progress<ProgressReportModel>();
+            progress.ProgressChanged += ProgressOnProgressChanged;
 
-        private async void Requests(bool async)
+            RequestsParallel(true, progress);
+        }
+        
+        private async void RequestsParallel(bool async, IProgress<ProgressReportModel> progress)
         {
             var requests = new List<Task>();
             var results = new ConcurrentDictionary<int, long>();
+            var progressModel = new ProgressReportModel { Async = async };
 
             var requestUrl = async ? $"{Url}GetAsync" : $"{Url}GetSync";
             
@@ -65,32 +73,22 @@ namespace _2.WpfDemo
 
                         stopWatch.Stop();
                         results.TryAdd(i1, stopWatch.ElapsedMilliseconds);
+                        
+                        progressModel.ChartResults = results;
+                        progress.Report(progressModel);
                     }
                 }));
             }
             
             await Task.WhenAll(requests);
-
-            var chartResults = new List<KeyValuePair<int, long>>();
-
-            foreach (var kvp in results)
-            {
-                chartResults.Add(new KeyValuePair<int, long>(kvp.Key, kvp.Value));
-            }
-
-            var lineNumber = async ? 1 : 0;
-            
-            var line = (LineSeries)mcChart.Series[lineNumber];
-            line.ItemsSource = chartResults.ToArray();
         }
-        
-        private void ClearChartBtn_Click(object sender, RoutedEventArgs e)
+
+        private void ProgressOnProgressChanged(object sender, ProgressReportModel progressReportModel)
         {
-            for (var i = 0; i < 2; i++)
-            {
-                var line = (LineSeries)mcChart.Series[i];
-                line.ItemsSource = Enumerable.Empty<KeyValuePair<int, long>>();
-            }
+            var lineNumber = progressReportModel.Async ? 1 : 0;
+
+            var line = (LineSeries)mcChart.Series[lineNumber];
+            line.ItemsSource = progressReportModel.ChartResults.ToArray();
         }
     }
 }
