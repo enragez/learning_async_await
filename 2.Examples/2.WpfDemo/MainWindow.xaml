@@ -1,0 +1,38 @@
+﻿<Window x:Class="_2.WpfDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_2.WpfDemo"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" WindowState="Maximized"
+        xmlns:toolkit="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit">
+
+    <Window.Resources>
+        <Style x:Key="redLine" TargetType="{x:Type charting:LineDataPoint}">
+            <Setter Property="Background" Value="Red"/>
+        </Style>
+        <Style x:Key="blueLine" TargetType="{x:Type charting:LineDataPoint}">
+            <Setter Property="Background" Value="Blue"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <charting:Chart Name="mcChart" Background="LightSteelBlue" Margin="35,84,32,33">
+            <charting:Chart.Series>
+                <charting:LineSeries Title="sync" 
+                                     DataPointStyle="{StaticResource redLine}"
+                    IndependentValueBinding="{Binding Path=Key}"
+                    DependentValueBinding="{Binding Path=Value}" Margin="0,0,1,0">
+                </charting:LineSeries>
+                <charting:LineSeries Title="async" 
+                                     DataPointStyle="{StaticResource blueLine}"
+                                     IndependentValueBinding="{Binding Path=Key}"
+                                     DependentValueBinding="{Binding Path=Value}" Margin="0,0,1,0">
+                </charting:LineSeries>
+            </charting:Chart.Series>
+        </charting:Chart>
+        <Button x:Name="SyncBtn" Content="Sync" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="38,47,0,0" Width="106" Click="SyncBtn_Click"/>
+        <Button x:Name="AsyncBtn" Content="Async" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="160,47,0,0" Width="106" Click="AsyncBtn_Click"/>
+    </Grid>
+</Window>
