@@ -32,7 +32,7 @@ namespace _2.WpfDemo
         }
 
         private const int RequestsCount = 100;
-        private const string Url = "http://localhost:56360/Demo/";
+        private const string Url = "http://localhost:50347/Demo/";
 
         private void SyncBtn_Click(object sender, RoutedEventArgs e)
         {
