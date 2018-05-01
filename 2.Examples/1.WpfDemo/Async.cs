@@ -34,7 +34,7 @@ namespace _1.WpfDemo
             }
         }
 
-        #region Другой вариант
+        #region Вариант получше
         private async Task<WebSiteDto> DownloadWebSiteAsync(string url)
         {
             using (var webClient = new WebClient())

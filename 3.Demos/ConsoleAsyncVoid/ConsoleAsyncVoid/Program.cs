@@ -16,7 +16,7 @@ namespace ConsoleAsyncVoid
         }
 
         #region 1
-        private async static Task MainAsync()
+        private static async Task MainAsync()
         {
             Console.WriteLine("Started");
 
@@ -31,7 +31,7 @@ namespace ConsoleAsyncVoid
             Console.WriteLine("Finished");
         }
 
-        private async static void DelayAndThrowAsync()
+        private static async void DelayAndThrowAsync()
         {
             await Task.Delay(100);
             throw new InvalidOperationException();
@@ -39,7 +39,7 @@ namespace ConsoleAsyncVoid
         #endregion
 
         #region 2
-        private async static Task MainAsync2()
+        private static async Task MainAsync2()
         {
             Console.WriteLine("Started");
 
